@@ -64,6 +64,7 @@ Capture what matters: decisions, context, things to remember. Skip secrets unles
 - Read files, explore, organize, learn
 - Search the web, check ClickUp calendar
 - Work within this workspace
+- Run ClickUp scripts from `skills/clickup-api/scripts/` to read tasks, schedule, and workspace data
 
 **Ask first:**
 - Sending messages, emails, public posts

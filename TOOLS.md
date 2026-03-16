@@ -5,7 +5,7 @@
 | Tool | Status | Scope | Notes |
 |------|--------|-------|-------|
 | Telegram | ✅ Active | All agents | Primary chat interface |
-| ClickUp | 🔧 Planned | All agents | Master task + calendar management |
+| ClickUp | ✅ Active | All agents | Via `clickup-api` bash scripts — no MCP needed |
 | Google TTS | 📋 Roadmap | All agents | Gemini 2.5 Flash Lite Preview TTS |
 
 ---
@@ -25,9 +25,43 @@
 ---
 
 ## ClickUp
-- **Status:** 🔧 Integration Pending
+- **Status:** ✅ Active — use scripts directly, no MCP or OAuth needed
+- **Skill:** `skills/clickup-api/` — full documentation and usage examples
+- **Scripts dir:** `~/.openclaw/workspace/skills/clickup-api/scripts/`
+- **Token:** Auto-loaded from `~/.openclaw/openclaw.json` (already configured)
 - **Workspace ID:** `9016539972`
 - **Main Calendar:** `https://app.clickup.com/9016539972/v/c/8cpuyu4-5256`
+
+### How to Use ClickUp
+
+Always set the alias first, then call the script:
+```bash
+S=~/.openclaw/workspace/skills/clickup-api/scripts
+```
+
+**Common operations:**
+```bash
+# Today's schedule (Manila TZ)
+$S/cu-schedule-today.sh
+
+# Schedule for a specific date
+$S/cu-schedule-date.sh 2026-03-17
+
+# Get a task by ID
+$S/cu-task-get.sh <task_id>
+
+# Create a task
+$S/cu-task-create.sh --list <list_id> --name "Task name" --priority 2
+
+# Search tasks
+$S/cu-search.sh "keyword"
+
+# Close a task
+$S/cu-task-close.sh <task_id>
+```
+
+See `skills/clickup-api/SKILL.md` for the full script reference, list IDs, and examples.
+
 - **Purpose:** Single source of truth for ALL tasks, projects, and calendar across every domain
 - **Planned Capabilities:**
   - Create, update, complete tasks
