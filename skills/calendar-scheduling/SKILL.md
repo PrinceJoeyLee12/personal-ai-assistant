@@ -158,6 +158,24 @@ When Joey asks to build a schedule for a date:
 13. Dinner (Others)
 14. Evening Routine (Personal List)
 
+### Workflow: Create Sunday Schedule
+
+When Joey asks to create his Sunday routine for a specific date:
+
+1. Validate that the provided date is a Sunday.
+2. Use `scripts/cu-schedule-sunday.sh <YYYY-MM-DD>` to create the routine.
+3. Report the successful creation or any errors.
+
+---
+
+### Workflow: Create Weekday Schedule
+
+When Joey asks to create his weekday routine for a specific date (Monday-Friday):
+
+1. Validate that the provided date is a weekday.
+2. Use `scripts/cu-schedule-weekday.sh <YYYY-MM-DD>` to create the routine.
+3. Report the successful creation or any errors.
+
 ### Step 4: Report
 - Show the created schedule as a timeline
 - Note total scheduled hours vs free time (Ma principle)
